@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"github.com/df-mc/dragonfly/dragonfly"
 	"github.com/df-mc/dragonfly/dragonfly/player"
+	_ "github.com/go-sql-driver/mysql"
 	"time"
 )
 

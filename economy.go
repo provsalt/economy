@@ -30,10 +30,10 @@ func New(s *dragonfly.Server, path string, config string) (*Economy, error) {
 	db.SetMaxOpenConns(5)
 	db.SetMaxIdleConns(2)
 
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS economy" +
-		"UUID VARCHAR(36) PRIMARY KEY," +
-		"username TEXT NOT NULL," +
-		"money FLOAT DEFAULT 0",
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS economy (" +
+		"UUID VARCHAR(36) PRIMARY KEY, " +
+		"username TEXT NOT NULL, " +
+		"money FLOAT DEFAULT 00;",
 	)
 	if err != nil {
 		return nil, err

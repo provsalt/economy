@@ -59,7 +59,3 @@ func (e Economy) InitPlayer(player *player.Player, defaultmoney float64) error {
 	spew.Dump(r)
 	return nil
 }
-
-func (e Economy) GetMoney(player *player.Player) error {
-	panic("TODO")
-}

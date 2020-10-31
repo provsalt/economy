@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2358218-7d9d-4d61-b016-622dcc4c2409" name="Default Changelist" comment="bruh scam">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/economy.go" beforeDir="false" afterPath="$PROJECT_DIR$/economy.go" afterDir="false" />
+    <list default="true" id="a2358218-7d9d-4d61-b016-622dcc4c2409" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,19 +80,30 @@
       <option name="project" value="LOCAL" />
       <updated>1603802585423</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add Init function for players">
+      <created>1604136696049</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1604136696049</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="config string instead of struct" />
     <MESSAGE value="Import mysql driver" />
     <MESSAGE value="Fix invalid synatx for mysql" />
     <MESSAGE value="nvm" />
     <MESSAGE value="bruh scam" />
-    <option name="LAST_COMMIT_MESSAGE" value="bruh scam" />
+    <MESSAGE value="Add Init function for players" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Init function for players" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -103,14 +113,14 @@
       <screen x="0" y="28" width="1280" height="692" />
     </state>
     <state x="436" y="214" key="#Go_Modules/0.28.1280.692@0.28.1280.692" timestamp="1603557613633" />
-    <state x="-4" y="28" key="CommitChangelistDialog2" timestamp="1604136299895">
+    <state x="0" y="28" key="CommitChangelistDialog2" timestamp="1604136695891">
       <screen x="0" y="28" width="1280" height="692" />
     </state>
-    <state x="-4" y="28" key="CommitChangelistDialog2/0.28.1280.692@0.28.1280.692" timestamp="1604136299895" />
-    <state x="236" y="109" key="Vcs.Push.Dialog.v2" timestamp="1603802588900">
+    <state x="0" y="28" key="CommitChangelistDialog2/0.28.1280.692@0.28.1280.692" timestamp="1604136695891" />
+    <state x="236" y="109" key="Vcs.Push.Dialog.v2" timestamp="1604136703429">
       <screen x="0" y="28" width="1280" height="692" />
     </state>
-    <state x="236" y="109" key="Vcs.Push.Dialog.v2/0.28.1280.692@0.28.1280.692" timestamp="1603802588900" />
+    <state x="236" y="109" key="Vcs.Push.Dialog.v2/0.28.1280.692@0.28.1280.692" timestamp="1604136703429" />
     <state x="414" y="187" width="451" height="376" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1604135356069">
       <screen x="0" y="28" width="1280" height="692" />
     </state>

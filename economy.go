@@ -48,7 +48,7 @@ func (e Economy) InitPlayer(player *player.Player, defaultmoney float64) (error,
 	if err != nil {
 		return err, nil
 	}
-	if r == nil {
+	if !r.Next() {
 		res, err := Db.Exec("REPLACE INTO economy (XUID, username, money) VALUES (?, ?, ?)", player.XUID(), player.Name(), defaultmoney)
 		if err != nil {
 			return nil, res

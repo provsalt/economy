@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2358218-7d9d-4d61-b016-622dcc4c2409" name="Default Changelist" comment="" />
+    <list default="true" id="a2358218-7d9d-4d61-b016-622dcc4c2409" name="Default Changelist" comment="bruh scam">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/economy.go" beforeDir="false" afterPath="$PROJECT_DIR$/economy.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,13 +103,25 @@
       <screen x="0" y="28" width="1280" height="692" />
     </state>
     <state x="436" y="214" key="#Go_Modules/0.28.1280.692@0.28.1280.692" timestamp="1603557613633" />
-    <state x="0" y="28" key="CommitChangelistDialog2" timestamp="1603802585307">
+    <state x="-4" y="28" key="CommitChangelistDialog2" timestamp="1604136299895">
       <screen x="0" y="28" width="1280" height="692" />
     </state>
-    <state x="0" y="28" key="CommitChangelistDialog2/0.28.1280.692@0.28.1280.692" timestamp="1603802585307" />
+    <state x="-4" y="28" key="CommitChangelistDialog2/0.28.1280.692@0.28.1280.692" timestamp="1604136299895" />
     <state x="236" y="109" key="Vcs.Push.Dialog.v2" timestamp="1603802588900">
       <screen x="0" y="28" width="1280" height="692" />
     </state>
     <state x="236" y="109" key="Vcs.Push.Dialog.v2/0.28.1280.692@0.28.1280.692" timestamp="1603802588900" />
+    <state x="414" y="187" width="451" height="376" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1604135356069">
+      <screen x="0" y="28" width="1280" height="692" />
+    </state>
+    <state x="414" y="187" width="451" height="376" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.28.1280.692@0.28.1280.692" timestamp="1604135356069" />
+    <state x="467" y="145" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1604135441267">
+      <screen x="0" y="28" width="1280" height="692" />
+    </state>
+    <state x="467" y="145" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.28.1280.692@0.28.1280.692" timestamp="1604135441267" />
+    <state x="303" y="40" width="672" height="678" key="search.everywhere.popup" timestamp="1604135247667">
+      <screen x="0" y="28" width="1280" height="692" />
+    </state>
+    <state x="303" y="40" width="672" height="678" key="search.everywhere.popup/0.28.1280.692@0.28.1280.692" timestamp="1604135247667" />
   </component>
 </project>

@@ -2,7 +2,6 @@ package Economy
 
 import (
 	"database/sql"
-	"github.com/davecgh/go-spew/spew"
 	"github.com/df-mc/dragonfly/dragonfly"
 	"github.com/df-mc/dragonfly/dragonfly/player"
 	_ "github.com/go-sql-driver/mysql"
@@ -44,18 +43,17 @@ func (e Economy) StartDB() (sql.Result, error) {
 	return res, nil
 }
 
-func (e Economy) InitPlayer(player *player.Player, defaultmoney float64) error {
+func (e Economy) InitPlayer(player *player.Player, defaultmoney float64) (error, sql.Result) {
 	r, err := Db.Query("SELECT username FROM economy WHERE XUID=?", player.XUID())
 	if err != nil {
-		return err
+		return err, nil
 	}
 	if r == nil {
 		res, err := Db.Exec("REPLACE INTO economy (XUID, username, money) VALUES (?, ?, ?)", player.XUID(), player.Name(), defaultmoney)
 		if err != nil {
-			return err
+			return nil, res
 		}
-		spew.Dump(res)
+		return nil, res
 	}
-	spew.Dump(r)
-	return nil
+	return nil, nil
 }

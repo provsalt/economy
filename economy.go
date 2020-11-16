@@ -1,59 +1,68 @@
-package Economy
+package economy
 
 import (
 	"database/sql"
-	"github.com/df-mc/dragonfly/dragonfly"
+	"errors"
 	"github.com/df-mc/dragonfly/dragonfly/player"
 	_ "github.com/go-sql-driver/mysql"
 	"time"
 )
 
 type Economy struct {
-	server *dragonfly.Server
-
-	path string
-
-	config string
+	Database *sql.DB
 }
 
-var Db *sql.DB
-
-func New(s *dragonfly.Server, path string, config string) *Economy {
-	e := &Economy{
-		server: s,
-		path:   path,
-		config: config,
-	}
-	return e
+type Connection struct {
+	IP       string
+	Username string
+	Password string
+	Schema   string
 }
 
-func (e Economy) StartDB() (sql.Result, error) {
-	db, err := sql.Open("mysql", e.config)
+func New(connection Connection, minConn int, maxconn int) Economy {
+	db, err := sql.Open("mysql", connection.Username+":"+connection.Password+"@("+connection.IP+")/"+connection.Schema)
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 	db.SetConnMaxLifetime(time.Minute * 3)
-	db.SetMaxOpenConns(50)
-	db.SetMaxIdleConns(30)
-	Db = db
-	res, err := db.Exec("CREATE TABLE IF NOT EXISTS economy ( XUID VARCHAR(36) PRIMARY KEY, username TEXT NOT NULL, money FLOAT DEFAULT 0);")
+	db.SetMaxOpenConns(maxconn)
+	db.SetMaxIdleConns(minConn)
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS economy(XUID BIGINT, username TEXT, money FLOAT);")
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
-	return res, nil
+	return Economy{
+		Database: db,
+	}
 }
 
-func (e Economy) InitPlayer(player *player.Player, defaultmoney float64) (error, sql.Result) {
-	r, err := Db.Query("SELECT username FROM economy WHERE XUID=?", player.XUID())
-	if err != nil {
-		return err, nil
+func (e Economy) InitPlayer(player *player.Player, defaultmoney int) bool {
+	r := e.Database.QueryRow("SELECT XUID FROM economy WHERE username=?", player.XUID())
+	var XUID int
+	err := r.Scan(&XUID)
+	if err == nil {
+		return true
 	}
-	if !r.Next() {
-		res, err := Db.Exec("REPLACE INTO economy (XUID, username, money) VALUES (?, ?, ?)", player.XUID(), player.Name(), defaultmoney)
+	if errors.Is(err, sql.ErrNoRows) {
+		_, err := e.Database.Exec("REPLACE INTO economy (XUID, username, money) VALUES (?, ?, ?)", player.XUID(), player.Name(), defaultmoney)
 		if err != nil {
-			return nil, res
+			panic(err)
 		}
-		return nil, res
+	} else {
+		panic(err)
 	}
-	return nil, nil
+	return true
+}
+func (e Economy) Close() {
+	e.Database.Close()
+}
+
+func (e Economy) Balance(player *player.Player) (error, int) {
+	r := e.Database.QueryRow("SELECT money FROM economy WHERE XUID=?", player.XUID())
+	var money int
+	err := r.Scan(&money)
+	if err != nil {
+		return err, 0
+	}
+	return nil, money
 }

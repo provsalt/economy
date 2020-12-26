@@ -1,4 +1,4 @@
-module github.com/saltcraft/economy
+module github.com/provsalt/economy
 
 go 1.15
 

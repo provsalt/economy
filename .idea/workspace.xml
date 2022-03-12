@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a2358218-7d9d-4d61-b016-622dcc4c2409" name="Default Changelist" comment="Hopefully fix this">
+      <change afterPath="$PROJECT_DIR$/economy_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/provider/postgre.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/provider/provider.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/provider/sqlite.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/economy.go" beforeDir="false" afterPath="$PROJECT_DIR$/economy.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +27,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="$USER_HOME$/go/go1.15.3" />
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../../Program Files/Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -31,18 +41,54 @@
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
+  <component name="KubernetesApiPersistence">
+    <option name="context" value="lke44144-ctx" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1jKew235oNzdIvg9sIPR1EbUjKp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="NEW_TOOLWINDOW_STRIPE_DEFAULTS" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect" value="PostgreSQL" />
+    <property name="go.format.on.save.advertiser.fired" value="true" />
+    <property name="go.formatter.settings.were.checked" value="true" />
     <property name="go.import.settings.migrated" value="true" />
+    <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="go.watchers.conflict.with.on.save.actions.check.performed" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="Economy" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="Economy" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="DIRECTORY" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -115,6 +161,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="config string instead of struct" />
@@ -131,31 +188,5 @@
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="436" y="214" key="#Go_Modules" timestamp="1603557613634">
-      <screen x="0" y="28" width="1280" height="692" />
-    </state>
-    <state x="436" y="214" key="#Go_Modules/0.28.1280.692@0.28.1280.692" timestamp="1603557613633" />
-    <state x="0" y="28" key="CommitChangelistDialog2" timestamp="1604140477800">
-      <screen x="0" y="28" width="1280" height="692" />
-    </state>
-    <state x="0" y="28" key="CommitChangelistDialog2/0.28.1280.692@0.28.1280.692" timestamp="1604140477800" />
-    <state x="236" y="109" key="Vcs.Push.Dialog.v2" timestamp="1604140480668">
-      <screen x="0" y="28" width="1280" height="692" />
-    </state>
-    <state x="236" y="109" key="Vcs.Push.Dialog.v2/0.28.1280.692@0.28.1280.692" timestamp="1604140480668" />
-    <state x="414" y="187" width="451" height="376" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1604135356069">
-      <screen x="0" y="28" width="1280" height="692" />
-    </state>
-    <state x="414" y="187" width="451" height="376" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.28.1280.692@0.28.1280.692" timestamp="1604135356069" />
-    <state x="467" y="145" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1604135441267">
-      <screen x="0" y="28" width="1280" height="692" />
-    </state>
-    <state x="467" y="145" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.28.1280.692@0.28.1280.692" timestamp="1604135441267" />
-    <state x="303" y="40" width="672" height="678" key="search.everywhere.popup" timestamp="1604135247667">
-      <screen x="0" y="28" width="1280" height="692" />
-    </state>
-    <state x="303" y="40" width="672" height="678" key="search.everywhere.popup/0.28.1280.692@0.28.1280.692" timestamp="1604135247667" />
   </component>
 </project>

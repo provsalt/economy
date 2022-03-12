@@ -3,21 +3,61 @@ The "pretty" straight forward api to create an economy for your server
 
 To start of just use the New function
 ```go
-e := economy.New(economy.Connection{
-		Username: "provsalt",
-		Password: "Wowthatwasreallycool",
-		IP:       "127.0.0.1:3306",
-		Schema:   "economy",
-	}, 3, 10)
+package main
+
+import (
+	"github.com/provsalt/economy"
+	"github.com/provsalt/economy/provider"
+)
+
+e := economy.New(provider.NewSQLite3("database/sqlite3.db"))
 ```
-Just enter the sql details and you're good to go
-3 is the minimum connections and 10 is the maximum connections
 
 ## Balance
+
 ```go
-ohno, bal := e.Balance(player)
-	if ohno != nil {
-		panic(ohno)
-	}
-	fmt.Println(bal)
+package main
+
+import (
+	"github.com/df-mc/dragonfly/server/player"
+	"github.com/provsalt/economy"
+)
+
+bal, ohno := e.Balance(player.XUID())
+if ohno != nil {
+panic(ohno)
+}
+fmt.Println(bal)
   ```
+
+## Increase
+```go
+ohno = e.Increase(player.XUID(), 500)
+if ohno != nil {
+	panic(ohno)
+}
+```
+
+## Decrease
+```go
+ohno = e.Decrease(player.XUID(), 500)
+if ohno != nil {
+	panic(ohno)
+}
+```
+
+## Set
+```go
+ohno = e.Set(player.XUID(), 500)
+if ohno != nil {
+	panic(ohno)
+}
+```
+
+## Close
+```go
+ohno = e.Close()
+if ohno != nil {
+	panic(ohno)
+}
+```

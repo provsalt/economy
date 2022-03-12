@@ -26,7 +26,7 @@ func NewPostgre(c ConnectionDetails) (*SQLite, error) {
 	if err != nil {
 		return nil, err
 	}
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS economy(XUID TEXT, money UNSIGNED BIG INT);")
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS economy(XUID TEXT, money NUMERIC);")
 	if err != nil {
 		return nil, err
 	}

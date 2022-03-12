@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2358218-7d9d-4d61-b016-622dcc4c2409" name="Default Changelist" comment="Hopefully fix this">
-      <change afterPath="$PROJECT_DIR$/economy_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/provider/postgre.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/provider/provider.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/provider/sqlite.go" afterDir="false" />
+    <list default="true" id="a2358218-7d9d-4d61-b016-622dcc4c2409" name="Default Changelist" comment="Fix documentation, thanks copilot">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/economy.go" beforeDir="false" afterPath="$PROJECT_DIR$/economy.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/provider/postgre.go" beforeDir="false" afterPath="$PROJECT_DIR$/provider/postgre.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +148,28 @@
       <option name="project" value="LOCAL" />
       <updated>1604140446428</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Update to a provider based model with sqlite and posgres included">
+      <created>1647088651291</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1647088651291</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Ignore test file">
+      <created>1647088706407</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1647088706407</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Fix documentation, thanks copilot">
+      <created>1647088881094</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1647088881094</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,7 +196,10 @@
     <MESSAGE value="Add Init function for players" />
     <MESSAGE value="fuck" />
     <MESSAGE value="Hopefully fix this" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hopefully fix this" />
+    <MESSAGE value="Update to a provider based model with sqlite and posgres included" />
+    <MESSAGE value="Ignore test file" />
+    <MESSAGE value="Fix documentation, thanks copilot" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix documentation, thanks copilot" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

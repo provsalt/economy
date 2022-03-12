@@ -10,7 +10,7 @@ import (
 	"github.com/provsalt/economy/provider"
 )
 
-e := economy.New(provider.NewSQLite3("database/sqlite3.db"))
+e := economy.New(provider.NewSQLite("database/sqlite3.db"))
 ```
 
 ## Balance

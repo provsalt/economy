@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2358218-7d9d-4d61-b016-622dcc4c2409" name="Default Changelist" comment="Fix documentation, thanks copilot">
+    <list default="true" id="a2358218-7d9d-4d61-b016-622dcc4c2409" name="Default Changelist" comment="Update postgres to NUMBERIC because unsigned big int doesn't exist">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/provider/postgre.go" beforeDir="false" afterPath="$PROJECT_DIR$/provider/postgre.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647088881094</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Update postgres to NUMBERIC because unsigned big int doesn't exist">
+      <created>1647091431422</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1647091431422</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +206,8 @@
     <MESSAGE value="Update to a provider based model with sqlite and posgres included" />
     <MESSAGE value="Ignore test file" />
     <MESSAGE value="Fix documentation, thanks copilot" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix documentation, thanks copilot" />
+    <MESSAGE value="Update postgres to NUMBERIC because unsigned big int doesn't exist" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update postgres to NUMBERIC because unsigned big int doesn't exist" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

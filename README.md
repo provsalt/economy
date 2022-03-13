@@ -9,25 +9,21 @@ import (
 	"github.com/provsalt/economy"
 	"github.com/provsalt/economy/provider"
 )
-
-e := economy.New(provider.NewSQLite("database/sqlite3.db"))
+func main() {
+	e := economy.New(provider.NewSQLite("database/sqlite3.db"))
+}
 ```
 
 ## Balance
 
 ```go
-package main
-
-import (
-	"github.com/df-mc/dragonfly/server/player"
-	"github.com/provsalt/economy"
-)
-
-bal, ohno := e.Balance(player.XUID())
-if ohno != nil {
-panic(ohno)
+func main() {
+    bal, ohno := e.Balance(player.XUID())
+    if ohno != nil {
+        panic(ohno)
+    }
+    fmt.Println(bal)
 }
-fmt.Println(bal)
   ```
 
 ## Increase

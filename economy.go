@@ -52,13 +52,13 @@ func (e *Economy) Increase(XUID string, amount uint64) error {
 	return err
 }
 
-// Reduce ...
-func (e *Economy) Reduce(XUID string, amount uint64) error {
+// Decrease ...
+func (e *Economy) Decrease(XUID string, amount uint64) error {
 	ctx := event.C()
 	e.h.HandleChange(ctx, XUID, handler.ChangeTypeDecrease, amount)
 	var err error
 	ctx.Continue(func() {
-		err = e.p.Reduce(XUID, amount)
+		err = e.p.Decrease(XUID, amount)
 	})
 	return err
 }

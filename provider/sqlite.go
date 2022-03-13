@@ -45,8 +45,8 @@ func (S *SQLite) Set(XUID string, value uint64) error {
 	return nil
 }
 
-// Reduce ...
-func (S *SQLite) Reduce(XUID string, value uint64) error {
+// Decrease ...
+func (S *SQLite) Decrease(XUID string, value uint64) error {
 	bal, err := S.Balance(XUID)
 	if err != nil {
 		return err

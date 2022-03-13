@@ -53,8 +53,8 @@ func (p *Postgre) Set(XUID string, value uint64) error {
 	return nil
 }
 
-// Reduce ...
-func (p *Postgre) Reduce(XUID string, value uint64) error {
+// Decrease ...
+func (p *Postgre) Decrease(XUID string, value uint64) error {
 	bal, err := p.Balance(XUID)
 	if err != nil {
 		return err

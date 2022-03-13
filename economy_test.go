@@ -41,7 +41,7 @@ func TestEconomy(t *testing.T) {
 		t.Error(err)
 	}
 
-	err = e.Reduce(xuid, 200)
+	err = e.Decrease(xuid, 200)
 
 	if err != nil {
 		t.Error(err)

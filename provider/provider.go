@@ -6,7 +6,7 @@ type Provider interface {
 
 	Set(XUID string, value uint64) error
 
-	Reduce(XUID string, value uint64) error
+	Decrease(XUID string, value uint64) error
 
 	Increase(XUID string, value uint64) error
 

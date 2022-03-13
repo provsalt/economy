@@ -6,6 +6,7 @@ import (
 	"github.com/provsalt/economy/provider"
 )
 
+// Economy is a struct that contains the economy provider and the event handler.
 type Economy struct {
 	p provider.Provider
 	h handler.EconomyHandler

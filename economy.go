@@ -1,7 +1,7 @@
 package economy
 
 import (
-	"github.com/df-mc/dragonfly/dragonfly/event"
+	"github.com/df-mc/dragonfly/server/event"
 	"github.com/provsalt/economy/handler"
 	"github.com/provsalt/economy/provider"
 )

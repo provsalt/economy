@@ -1,6 +1,6 @@
 package handler
 
-import "github.com/df-mc/dragonfly/dragonfly/event"
+import "github.com/df-mc/dragonfly/server/event"
 
 // ChangeType is the type of change that has occurred.
 const (

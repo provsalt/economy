@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2358218-7d9d-4d61-b016-622dcc4c2409" name="Default Changelist" comment="Update dragonfly version">
+    <list default="true" id="a2358218-7d9d-4d61-b016-622dcc4c2409" name="Default Changelist" comment="economy.go update dragonfly">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/economy.go" beforeDir="false" afterPath="$PROJECT_DIR$/economy.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handler/economyHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/economyHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/provider/postgre.go" beforeDir="false" afterPath="$PROJECT_DIR$/provider/postgre.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/provider/provider.go" beforeDir="false" afterPath="$PROJECT_DIR$/provider/provider.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/provider/sqlite.go" beforeDir="false" afterPath="$PROJECT_DIR$/provider/sqlite.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647672167206</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="economy.go update dragonfly">
+      <created>1647672877488</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1647672877488</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,7 +258,8 @@
     <MESSAGE value="Update missing comments" />
     <MESSAGE value="Change Reduce to Decrease for providers" />
     <MESSAGE value="Update dragonfly version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update dragonfly version" />
+    <MESSAGE value="economy.go update dragonfly" />
+    <option name="LAST_COMMIT_MESSAGE" value="economy.go update dragonfly" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

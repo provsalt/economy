@@ -2,6 +2,7 @@ package economy
 
 import (
 	"github.com/df-mc/dragonfly/server/event"
+	"github.com/google/uuid"
 	"github.com/provsalt/economy/handler"
 	"github.com/provsalt/economy/provider"
 )
@@ -26,39 +27,39 @@ func (e *Economy) Handle(h handler.EconomyHandler) {
 }
 
 // Balance ...
-func (e *Economy) Balance(XUID string) (uint64, error) {
-	return e.p.Balance(XUID)
+func (e *Economy) Balance(UUID uuid.UUID) (uint64, error) {
+	return e.p.Balance(UUID.String())
 }
 
 // Set ...
-func (e *Economy) Set(XUID string, amount uint64) error {
+func (e *Economy) Set(UUID uuid.UUID, amount uint64) error {
 	ctx := event.C()
-	e.h.HandleChange(ctx, XUID, handler.ChangeTypeSet, amount)
+	e.h.HandleChange(ctx, UUID, handler.ChangeTypeSet, amount)
 	var err error
 	ctx.Continue(func() {
-		err = e.p.Set(XUID, amount)
+		err = e.p.Set(UUID.String(), amount)
 	})
 	return err
 }
 
 // Increase ...
-func (e *Economy) Increase(XUID string, amount uint64) error {
+func (e *Economy) Increase(UUID uuid.UUID, amount uint64) error {
 	ctx := event.C()
-	e.h.HandleChange(ctx, XUID, handler.ChangeTypeIncrease, amount)
+	e.h.HandleChange(ctx, UUID, handler.ChangeTypeIncrease, amount)
 	var err error
 	ctx.Continue(func() {
-		err = e.p.Increase(XUID, amount)
+		err = e.p.Increase(UUID.String(), amount)
 	})
 	return err
 }
 
 // Decrease ...
-func (e *Economy) Decrease(XUID string, amount uint64) error {
+func (e *Economy) Decrease(UUID uuid.UUID, amount uint64) error {
 	ctx := event.C()
-	e.h.HandleChange(ctx, XUID, handler.ChangeTypeDecrease, amount)
+	e.h.HandleChange(ctx, UUID, handler.ChangeTypeDecrease, amount)
 	var err error
 	ctx.Continue(func() {
-		err = e.p.Decrease(XUID, amount)
+		err = e.p.Decrease(UUID.String(), amount)
 	})
 	return err
 }

@@ -26,7 +26,7 @@ func NewPostgre(c ConnectionDetails) (*SQLite, error) {
 	if err != nil {
 		return nil, err
 	}
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS economy(XUID TEXT, money NUMERIC);")
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS economy(UUID TEXT, money NUMERIC);")
 	if err != nil {
 		return nil, err
 	}
@@ -34,8 +34,8 @@ func NewPostgre(c ConnectionDetails) (*SQLite, error) {
 }
 
 // Balance ...
-func (p *Postgre) Balance(XUID string) (uint64, error) {
-	r := p.Database.QueryRow("SELECT money FROM economy WHERE XUID=?", XUID)
+func (p *Postgre) Balance(UUID string) (uint64, error) {
+	r := p.Database.QueryRow("SELECT money FROM economy WHERE UUID=?", UUID)
 	var money uint64
 	err := r.Scan(&money)
 	if err != nil {
@@ -45,8 +45,8 @@ func (p *Postgre) Balance(XUID string) (uint64, error) {
 }
 
 // Set ...
-func (p *Postgre) Set(XUID string, value uint64) error {
-	_, err := p.Database.Exec("UPDATE economy SET money=$1 WHERE XUID=$2", value, XUID)
+func (p *Postgre) Set(UUID string, value uint64) error {
+	_, err := p.Database.Exec("UPDATE economy SET money=$1 WHERE UUID=$2", value, UUID)
 	if err != nil {
 		return err
 	}
@@ -54,12 +54,12 @@ func (p *Postgre) Set(XUID string, value uint64) error {
 }
 
 // Decrease ...
-func (p *Postgre) Decrease(XUID string, value uint64) error {
+func (p *Postgre) Decrease(UUID string, value uint64) error {
 	bal, err := p.Balance(XUID)
 	if err != nil {
 		return err
 	}
-	_, err = p.Database.Exec("UPDATE economy SET money=$1 WHERE XUID=$2", bal-value, XUID)
+	_, err = p.Database.Exec("UPDATE economy SET money=$1 WHERE UUID=$2", bal-value, UUID)
 	if err != nil {
 		return err
 	}
@@ -67,12 +67,12 @@ func (p *Postgre) Decrease(XUID string, value uint64) error {
 }
 
 // Increase ...
-func (p *Postgre) Increase(XUID string, value uint64) error {
-	bal, err := p.Balance(XUID)
+func (p *Postgre) Increase(UUID string, value uint64) error {
+	bal, err := p.Balance(UUID)
 	if err != nil {
 		return err
 	}
-	_, err = p.Database.Exec("UPDATE economy SET money=$1 WHERE XUID=$2", bal+value, XUID)
+	_, err = p.Database.Exec("UPDATE economy SET money=$1 WHERE XUID=$2", bal+value, UUID)
 	if err != nil {
 		return err
 	}

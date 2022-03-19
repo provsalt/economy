@@ -16,18 +16,18 @@ func NewSQLite(path string) (*SQLite, error) {
 	if err != nil {
 		return nil, err
 	}
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS economy(XUID TEXT NOT NULL, money UNSIGNED BIG INT NOT NULL);")
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS economy(UUID TEXT NOT NULL, money UNSIGNED BIG INT NOT NULL);")
 	if err != nil {
 		return nil, err
 	}
 
-	_, err = db.Exec(`CREATE UNIQUE INDEX IF NOT EXISTS economy_xuid_index ON economy(XUID);`)
+	_, err = db.Exec(`CREATE UNIQUE INDEX IF NOT EXISTS economy_UUID_index ON economy(UUID);`)
 	return &SQLite{db}, nil
 }
 
 // Balance ...
-func (S *SQLite) Balance(XUID string) (uint64, error) {
-	r := S.Database.QueryRow("SELECT money FROM economy WHERE XUID=$1", XUID)
+func (S *SQLite) Balance(UUID string) (uint64, error) {
+	r := S.Database.QueryRow("SELECT money FROM economy WHERE UUID=$1", UUID)
 	var money uint64
 	err := r.Scan(&money)
 	if err != nil {
@@ -37,8 +37,8 @@ func (S *SQLite) Balance(XUID string) (uint64, error) {
 }
 
 // Set ...
-func (S *SQLite) Set(XUID string, value uint64) error {
-	_, err := S.Database.Exec("REPLACE INTO economy VALUES ($1, $2)", XUID, value)
+func (S *SQLite) Set(UUID string, value uint64) error {
+	_, err := S.Database.Exec("REPLACE INTO economy VALUES ($1, $2)", UUID, value)
 	if err != nil {
 		return err
 	}
@@ -46,12 +46,12 @@ func (S *SQLite) Set(XUID string, value uint64) error {
 }
 
 // Decrease ...
-func (S *SQLite) Decrease(XUID string, value uint64) error {
-	bal, err := S.Balance(XUID)
+func (S *SQLite) Decrease(UUID string, value uint64) error {
+	bal, err := S.Balance(UUID)
 	if err != nil {
 		return err
 	}
-	_, err = S.Database.Exec("REPLACE INTO economy VALUES ($1, $2)", XUID, bal-value)
+	_, err = S.Database.Exec("REPLACE INTO economy VALUES ($1, $2)", UUID, bal-value)
 	if err != nil {
 		return err
 	}
@@ -59,12 +59,12 @@ func (S *SQLite) Decrease(XUID string, value uint64) error {
 }
 
 // Increase ...
-func (S *SQLite) Increase(XUID string, value uint64) error {
-	bal, err := S.Balance(XUID)
+func (S *SQLite) Increase(UUID string, value uint64) error {
+	bal, err := S.Balance(UUID)
 	if err != nil {
 		return err
 	}
-	_, err = S.Database.Exec("REPLACE INTO economy VALUES ($1, $2)", XUID, bal+value)
+	_, err = S.Database.Exec("REPLACE INTO economy VALUES ($1, $2)", UUID, bal+value)
 	if err != nil {
 		return err
 	}

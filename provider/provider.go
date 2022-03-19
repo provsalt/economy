@@ -2,13 +2,13 @@ package provider
 
 // Provider is an interface that defines the methods that a provider must implement.
 type Provider interface {
-	Balance(XUID string) (uint64, error)
+	Balance(UUID string) (uint64, error)
 
-	Set(XUID string, value uint64) error
+	Set(UUID string, value uint64) error
 
-	Decrease(XUID string, value uint64) error
+	Decrease(UUID string, value uint64) error
 
-	Increase(XUID string, value uint64) error
+	Increase(UUID string, value uint64) error
 
 	Close() error
 }

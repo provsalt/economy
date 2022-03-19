@@ -1,15 +1,15 @@
 package economy
 
 import (
+	"github.com/google/uuid"
 	"github.com/provsalt/economy/provider"
 	"os"
 	"testing"
 )
 
-var xuid = "830188016623423366"
-
 // TestEconomy tests the economy package
 func TestEconomy(t *testing.T) {
+	id := uuid.New()
 	sql, err := provider.NewSQLite("test.sqlite")
 	if err != nil {
 		panic(err)
@@ -19,13 +19,13 @@ func TestEconomy(t *testing.T) {
 		t.Error("New: Economy is nil")
 	}
 
-	err = e.Set(xuid, 1000)
+	err = e.Set(id, 1000)
 
 	if err != nil {
 		t.Error(err)
 	}
 
-	bal, err := e.Balance(xuid)
+	bal, err := e.Balance(id)
 
 	if err != nil {
 		t.Error(err)
@@ -35,19 +35,19 @@ func TestEconomy(t *testing.T) {
 		t.Errorf("Init: Balance is not 1000, But %d", bal)
 	}
 
-	err = e.Increase(xuid, 100)
+	err = e.Increase(id, 100)
 
 	if err != nil {
 		t.Error(err)
 	}
 
-	err = e.Decrease(xuid, 200)
+	err = e.Decrease(id, 200)
 
 	if err != nil {
 		t.Error(err)
 	}
 
-	bal, err = e.Balance(xuid)
+	bal, err = e.Balance(id)
 
 	if err != nil {
 		t.Error(err)

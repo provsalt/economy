@@ -55,7 +55,7 @@ func (p *Postgre) Set(UUID string, value uint64) error {
 
 // Decrease ...
 func (p *Postgre) Decrease(UUID string, value uint64) error {
-	bal, err := p.Balance(XUID)
+	bal, err := p.Balance(UUID)
 	if err != nil {
 		return err
 	}

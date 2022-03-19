@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2358218-7d9d-4d61-b016-622dcc4c2409" name="Default Changelist" comment="economy.go update dragonfly">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/economy.go" beforeDir="false" afterPath="$PROJECT_DIR$/economy.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handler/economyHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/economyHandler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/provider/postgre.go" beforeDir="false" afterPath="$PROJECT_DIR$/provider/postgre.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/provider/provider.go" beforeDir="false" afterPath="$PROJECT_DIR$/provider/provider.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/provider/sqlite.go" beforeDir="false" afterPath="$PROJECT_DIR$/provider/sqlite.go" afterDir="false" />
+    <list default="true" id="a2358218-7d9d-4d61-b016-622dcc4c2409" name="Default Changelist" comment="Update tests">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +218,21 @@
       <option name="project" value="LOCAL" />
       <updated>1647672877488</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Update XUID to uuid.UUID">
+      <created>1647680304374</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1647680304374</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Update tests">
+      <created>1647680481639</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1647680481639</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,7 +268,9 @@
     <MESSAGE value="Change Reduce to Decrease for providers" />
     <MESSAGE value="Update dragonfly version" />
     <MESSAGE value="economy.go update dragonfly" />
-    <option name="LAST_COMMIT_MESSAGE" value="economy.go update dragonfly" />
+    <MESSAGE value="Update XUID to uuid.UUID" />
+    <MESSAGE value="Update tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update tests" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

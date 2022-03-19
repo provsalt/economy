@@ -18,9 +18,9 @@ func main() {
 
 ```go
 func main() {
-    bal, ohno := e.Balance(player.XUID())
+    bal, ohno := e.Balance(player.UUID())
     if ohno != nil {
-        panic(ohno)
+        panic(ohno) 
     }
     fmt.Println(bal)
 }
@@ -28,7 +28,7 @@ func main() {
 
 ## Increase
 ```go
-ohno = e.Increase(player.XUID(), 500)
+ohno = e.Increase(player.UUID(), 500)
 if ohno != nil {
 	panic(ohno)
 }
@@ -36,7 +36,7 @@ if ohno != nil {
 
 ## Decrease
 ```go
-ohno = e.Decrease(player.XUID(), 500)
+ohno = e.Decrease(player.UUID(), 500)
 if ohno != nil {
 	panic(ohno)
 }
@@ -44,7 +44,7 @@ if ohno != nil {
 
 ## Set
 ```go
-ohno = e.Set(player.XUID(), 500)
+ohno = e.Set(player.UUID(), 500)
 if ohno != nil {
 	panic(ohno)
 }

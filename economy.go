@@ -1,6 +1,7 @@
 package economy
 
 import (
+	"errors"
 	"github.com/df-mc/dragonfly/server/event"
 	"github.com/google/uuid"
 	"github.com/provsalt/economy/handler"
@@ -12,6 +13,8 @@ type Economy struct {
 	p provider.Provider
 	h handler.EconomyHandler
 }
+
+var ErrEventCancelled = errors.New("Event cancelled")
 
 // New creates a new economy instance with a provider.
 func New(p provider.Provider) *Economy {
@@ -35,33 +38,30 @@ func (e *Economy) Balance(UUID uuid.UUID) (uint64, error) {
 func (e *Economy) Set(UUID uuid.UUID, amount uint64) error {
 	ctx := event.C()
 	e.h.HandleChange(ctx, UUID, handler.ChangeTypeSet, amount)
-	var err error
-	ctx.Continue(func() {
-		err = e.p.Set(UUID.String(), amount)
-	})
-	return err
+	if ctx.Cancelled() {
+		return ErrEventCancelled
+	}
+	return e.p.Set(UUID.String(), amount)
 }
 
 // Increase ...
 func (e *Economy) Increase(UUID uuid.UUID, amount uint64) error {
 	ctx := event.C()
 	e.h.HandleChange(ctx, UUID, handler.ChangeTypeIncrease, amount)
-	var err error
-	ctx.Continue(func() {
-		err = e.p.Increase(UUID.String(), amount)
-	})
-	return err
+	if ctx.Cancelled() {
+		return ErrEventCancelled
+	}
+	return e.p.Increase(UUID.String(), amount)
 }
 
 // Decrease ...
 func (e *Economy) Decrease(UUID uuid.UUID, amount uint64) error {
 	ctx := event.C()
 	e.h.HandleChange(ctx, UUID, handler.ChangeTypeDecrease, amount)
-	var err error
-	ctx.Continue(func() {
-		err = e.p.Decrease(UUID.String(), amount)
-	})
-	return err
+	if ctx.Cancelled() {
+		return ErrEventCancelled
+	}
+	return e.p.Decrease(UUID.String(), amount)
 }
 
 // Close ...

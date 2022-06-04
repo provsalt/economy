@@ -2,6 +2,7 @@ package economy
 
 import (
 	"github.com/google/uuid"
+	"github.com/provsalt/economy/handler"
 	"github.com/provsalt/economy/provider"
 	"os"
 	"testing"
@@ -14,7 +15,7 @@ func TestEconomy(t *testing.T) {
 	if err != nil {
 		panic(err)
 	}
-	e := New(sql)
+	e := New(sql, handler.NopEconomyHandler{})
 	if e == nil {
 		t.Error("New: Economy is nil")
 	}

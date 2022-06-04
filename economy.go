@@ -17,10 +17,10 @@ type Economy struct {
 var ErrEventCancelled = errors.New("Event cancelled")
 
 // New creates a new economy instance with a provider.
-func New(p provider.Provider) *Economy {
+func New(p provider.Provider, h handler.EconomyHandler) *Economy {
 	return &Economy{
 		p,
-		handler.NopEconomyHandler{},
+		h,
 	}
 }
 
@@ -51,7 +51,11 @@ func (e *Economy) Increase(UUID uuid.UUID, amount uint64) error {
 	if ctx.Cancelled() {
 		return ErrEventCancelled
 	}
-	return e.p.Increase(UUID.String(), amount)
+	bal, err := e.p.Balance(UUID.String())
+	if err != nil {
+		return err
+	}
+	return e.p.Set(UUID.String(), bal+amount)
 }
 
 // Decrease ...
@@ -61,7 +65,11 @@ func (e *Economy) Decrease(UUID uuid.UUID, amount uint64) error {
 	if ctx.Cancelled() {
 		return ErrEventCancelled
 	}
-	return e.p.Decrease(UUID.String(), amount)
+	bal, err := e.p.Balance(UUID.String())
+	if err != nil {
+		return err
+	}
+	return e.p.Set(UUID.String(), bal-amount)
 }
 
 // Close ...

@@ -45,32 +45,6 @@ func (S *SQLite) Set(UUID string, value uint64) error {
 	return nil
 }
 
-// Decrease ...
-func (S *SQLite) Decrease(UUID string, value uint64) error {
-	bal, err := S.Balance(UUID)
-	if err != nil {
-		return err
-	}
-	_, err = S.Database.Exec("REPLACE INTO economy VALUES ($1, $2)", UUID, bal-value)
-	if err != nil {
-		return err
-	}
-	return nil
-}
-
-// Increase ...
-func (S *SQLite) Increase(UUID string, value uint64) error {
-	bal, err := S.Balance(UUID)
-	if err != nil {
-		return err
-	}
-	_, err = S.Database.Exec("REPLACE INTO economy VALUES ($1, $2)", UUID, bal+value)
-	if err != nil {
-		return err
-	}
-	return nil
-}
-
 // Close closes the opened database connection and saves the sqlite file.
 func (S *SQLite) Close() error {
 	return S.Database.Close()

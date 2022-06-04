@@ -53,32 +53,6 @@ func (p *Postgre) Set(UUID string, value uint64) error {
 	return nil
 }
 
-// Decrease ...
-func (p *Postgre) Decrease(UUID string, value uint64) error {
-	bal, err := p.Balance(UUID)
-	if err != nil {
-		return err
-	}
-	_, err = p.Database.Exec("UPDATE economy SET money=$1 WHERE UUID=$2", bal-value, UUID)
-	if err != nil {
-		return err
-	}
-	return nil
-}
-
-// Increase ...
-func (p *Postgre) Increase(UUID string, value uint64) error {
-	bal, err := p.Balance(UUID)
-	if err != nil {
-		return err
-	}
-	_, err = p.Database.Exec("UPDATE economy SET money=$1 WHERE XUID=$2", bal+value, UUID)
-	if err != nil {
-		return err
-	}
-	return nil
-}
-
 // Close closes the opened database connection and saves the sqlite file.
 func (p *Postgre) Close() error {
 	return p.Database.Close()

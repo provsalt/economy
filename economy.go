@@ -19,6 +19,7 @@ type Economy struct {
 	c cache.Cache[uint64]
 }
 
+// ErrEventCancelled is an error that is returned when the event is cancelled.
 var ErrEventCancelled = errors.New("event cancelled")
 
 // New creates a new economy instance with a provider.
@@ -46,7 +47,7 @@ func (e *Economy) Handle(h handler.EconomyHandler) {
 	e.h = h
 }
 
-// Balance ...
+// Balance returns the balance of a player.
 func (e *Economy) Balance(UUID uuid.UUID) (uint64, error) {
 	ctx := context.Background()
 	d, err := e.c.Get(ctx, UUID)
@@ -64,7 +65,8 @@ func (e *Economy) Balance(UUID uuid.UUID) (uint64, error) {
 	return d, nil
 }
 
-// Set ...
+// Set sets the balance of a player to a given value.
+// You should be using this function to initialize a player's balance or Balance function will throw an error.
 func (e *Economy) Set(UUID uuid.UUID, amount uint64) error {
 	ctx := event.C()
 	e.h.HandleChange(ctx, UUID, handler.ChangeTypeSet, amount)
@@ -78,7 +80,7 @@ func (e *Economy) Set(UUID uuid.UUID, amount uint64) error {
 	return e.p.Set(UUID.String(), amount)
 }
 
-// Increase ...
+// Increase is a wrapper for Set that increases the balance of a player.
 func (e *Economy) Increase(UUID uuid.UUID, amount uint64) error {
 	ctx := event.C()
 	e.h.HandleChange(ctx, UUID, handler.ChangeTypeIncrease, amount)
@@ -92,7 +94,7 @@ func (e *Economy) Increase(UUID uuid.UUID, amount uint64) error {
 	return e.Set(UUID, bal+amount)
 }
 
-// Decrease ...
+// Decrease is a wrapper for Set that decreases the balance of a player.
 func (e *Economy) Decrease(UUID uuid.UUID, amount uint64) error {
 	ctx := event.C()
 	e.h.HandleChange(ctx, UUID, handler.ChangeTypeDecrease, amount)
@@ -106,7 +108,7 @@ func (e *Economy) Decrease(UUID uuid.UUID, amount uint64) error {
 	return e.Set(UUID, bal-amount)
 }
 
-// Close ...
+// Close closes the economy provider.
 func (e *Economy) Close() error {
 	return e.p.Close()
 }

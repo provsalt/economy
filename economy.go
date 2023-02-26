@@ -1,8 +1,12 @@
 package economy
 
 import (
+	"context"
 	"errors"
 	"github.com/df-mc/dragonfly/server/event"
+	"github.com/dgraph-io/ristretto"
+	"github.com/eko/gocache/lib/v4/cache"
+	ristretto2 "github.com/eko/gocache/store/ristretto/v4"
 	"github.com/google/uuid"
 	"github.com/provsalt/economy/handler"
 	"github.com/provsalt/economy/provider"
@@ -12,15 +16,28 @@ import (
 type Economy struct {
 	p provider.Provider
 	h handler.EconomyHandler
+	c cache.Cache[uint64]
 }
 
-var ErrEventCancelled = errors.New("Event cancelled")
+var ErrEventCancelled = errors.New("event cancelled")
 
 // New creates a new economy instance with a provider.
 func New(p provider.Provider, h handler.EconomyHandler) *Economy {
+	ristrettoCache, err := ristretto.NewCache(&ristretto.Config{
+		NumCounters: 1 << 16,
+		MaxCost:     1 << 8,
+		BufferItems: 64,
+	})
+	if err != nil {
+		panic(err)
+	}
+	ristrettoStore := ristretto2.NewRistretto(ristrettoCache)
+
+	cacheManager := cache.New[uint64](ristrettoStore)
 	return &Economy{
 		p,
 		h,
+		*cacheManager,
 	}
 }
 
@@ -31,7 +48,20 @@ func (e *Economy) Handle(h handler.EconomyHandler) {
 
 // Balance ...
 func (e *Economy) Balance(UUID uuid.UUID) (uint64, error) {
-	return e.p.Balance(UUID.String())
+	ctx := context.Background()
+	d, err := e.c.Get(ctx, UUID)
+	if err != nil {
+		bal, err := e.p.Balance(UUID.String())
+		if err != nil {
+			return 0, err
+		}
+		err = e.c.Set(ctx, UUID, bal)
+		if err != nil {
+			return 0, err
+		}
+		return bal, nil
+	}
+	return d, nil
 }
 
 // Set ...
@@ -40,6 +70,10 @@ func (e *Economy) Set(UUID uuid.UUID, amount uint64) error {
 	e.h.HandleChange(ctx, UUID, handler.ChangeTypeSet, amount)
 	if ctx.Cancelled() {
 		return ErrEventCancelled
+	}
+	err := e.c.Set(context.Background(), UUID, amount)
+	if err != nil {
+		return err
 	}
 	return e.p.Set(UUID.String(), amount)
 }
@@ -51,11 +85,11 @@ func (e *Economy) Increase(UUID uuid.UUID, amount uint64) error {
 	if ctx.Cancelled() {
 		return ErrEventCancelled
 	}
-	bal, err := e.p.Balance(UUID.String())
+	bal, err := e.Balance(UUID)
 	if err != nil {
 		return err
 	}
-	return e.p.Set(UUID.String(), bal+amount)
+	return e.Set(UUID, bal+amount)
 }
 
 // Decrease ...
@@ -65,11 +99,11 @@ func (e *Economy) Decrease(UUID uuid.UUID, amount uint64) error {
 	if ctx.Cancelled() {
 		return ErrEventCancelled
 	}
-	bal, err := e.p.Balance(UUID.String())
+	bal, err := e.Balance(UUID)
 	if err != nil {
 		return err
 	}
-	return e.p.Set(UUID.String(), bal-amount)
+	return e.Set(UUID, bal-amount)
 }
 
 // Close ...

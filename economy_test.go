@@ -42,6 +42,12 @@ func TestEconomy(t *testing.T) {
 		t.Error(err)
 	}
 
+	bal, err = e.Balance(id)
+
+	if bal != 1100 {
+		t.Errorf("Increase: Balance is not 1100, but %d", bal)
+	}
+
 	err = e.Decrease(id, 200)
 
 	if err != nil {
@@ -55,7 +61,7 @@ func TestEconomy(t *testing.T) {
 	}
 
 	if bal != 900 {
-		t.Errorf("Increase/Decrease: Balance is not 900, but %d", bal)
+		t.Errorf("Decrease: Balance is not 900, but %d", bal)
 	}
 
 	err = e.Close()
